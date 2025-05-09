@@ -1,13 +1,13 @@
 package com.jcbs.carteira.core.model;
 
 import java.math.BigDecimal;
-import java.util.UUID;
 
-import org.springframework.data.annotation.Id;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
@@ -17,8 +17,8 @@ import jakarta.persistence.Table;
 public class Carteira {
 
     @Id
-    @GeneratedValue
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "usuario_id", nullable = false)
@@ -33,18 +33,18 @@ public class Carteira {
     public Carteira() {
     }
 
-    public Carteira(UUID id, Usuario usuario, BigDecimal saldo, BigDecimal limiteDiario) {
+    public Carteira(Long id, Usuario usuario, BigDecimal saldo, BigDecimal limiteDiario) {
         this.id = id;
         this.usuario = usuario;
         this.saldo = saldo;
         this.limiteDiario = limiteDiario;
     }
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

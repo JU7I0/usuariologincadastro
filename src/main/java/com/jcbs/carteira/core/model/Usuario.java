@@ -1,11 +1,11 @@
 package com.jcbs.carteira.core.model;
 
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
@@ -14,8 +14,8 @@ import jakarta.persistence.Table;
 public class Usuario {
 
     @Id
-    @GeneratedValue
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(unique = true, length = 14)
     private String cpf;
@@ -38,7 +38,7 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(UUID id, String cpf, String email, String nome, String senhaHash, Boolean ativo,
+    public Usuario(Long id, String cpf, String email, String nome, String senhaHash, Boolean ativo,
             LocalDateTime dataCriacao) {
         this.id = id;
         this.cpf = cpf;
@@ -49,11 +49,11 @@ public class Usuario {
         this.dataCriacao = dataCriacao;
     }
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

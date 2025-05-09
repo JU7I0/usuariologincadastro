@@ -1,6 +1,6 @@
 -- Tabela de usuários
 CREATE TABLE usuario (
-    id UUID PRIMARY KEY,
+    id BIGINT PRIMARY KEY,
     cpf VARCHAR(14) UNIQUE,
     email VARCHAR(255) UNIQUE,
     nome VARCHAR(100),
@@ -11,22 +11,21 @@ CREATE TABLE usuario (
 
 -- Tabela de carteiras
 CREATE TABLE carteira (
-    id UUID PRIMARY KEY,
-    usuario_id UUID REFERENCES usuario(id),
+    id BIGINT PRIMARY KEY,
+    usuario_id BIGINT REFERENCES usuario(id),
     saldo DECIMAL(19,4) CHECK (saldo >= 0),
     limite_diario DECIMAL(19,4)
 );
 
 -- Tabela de transações (Event Sourcing)
 CREATE TABLE transacao (
-    id UUID PRIMARY KEY,
+    id BIGINT PRIMARY KEY,
     tipo VARCHAR(50),
     valor DECIMAL(19,4),
-    origem_id UUID,
-    destino_id UUID,
+    origem_id BIGINT,
+    destino_id BIGINT,
     status VARCHAR(20),
-    data_criacao TIMESTAMP,
-    metadata JSONB
+    data_criacao TIMESTAMP
 );
 
 -- Índices importantes
