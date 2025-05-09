@@ -3,15 +3,14 @@ package com.jcbs.carteira.core.model;
 import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 @Entity
 @Table(name = "transacao")
 public class Transacao {
 
     @Id
-    @GeneratedValue
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(length = 50, nullable = false)
     private String tipo;
@@ -20,10 +19,10 @@ public class Transacao {
     private BigDecimal valor;
 
     @Column(name = "origem_id")
-    private UUID origemId;
+    private Long origemId;
 
     @Column(name = "destino_id")
-    private UUID destinoId;
+    private Long destinoId;
 
     @Column(length = 20, nullable = false)
     private String status;
@@ -35,7 +34,7 @@ public class Transacao {
     public Transacao() {
     }
 
-    public Transacao(UUID id, String tipo, BigDecimal valor, UUID origemId, UUID destinoId, String status, LocalDateTime dataCriacao) {
+    public Transacao(Long id, String tipo, BigDecimal valor, Long origemId, Long destinoId, String status, LocalDateTime dataCriacao) {
         this.id = id;
         this.tipo = tipo;
         this.valor = valor;
@@ -45,11 +44,11 @@ public class Transacao {
         this.dataCriacao = dataCriacao;
     }
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -69,19 +68,19 @@ public class Transacao {
         this.valor = valor;
     }
 
-    public UUID getOrigemId() {
+    public Long getOrigemId() {
         return origemId;
     }
 
-    public void setOrigemId(UUID origemId) {
+    public void setOrigemId(Long origemId) {
         this.origemId = origemId;
     }
 
-    public UUID getDestinoId() {
+    public Long getDestinoId() {
         return destinoId;
     }
 
-    public void setDestinoId(UUID destinoId) {
+    public void setDestinoId(Long destinoId) {
         this.destinoId = destinoId;
     }
 
