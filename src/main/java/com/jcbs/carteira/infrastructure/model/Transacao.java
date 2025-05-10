@@ -1,16 +1,33 @@
-package com.jcbs.carteira.core.model;
+package com.jcbs.carteira.infrastructure.model;
 
+import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+@Entity
+@Table(name = "transacao")
 public class Transacao {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(length = 50, nullable = false)
     private String tipo;
+
+    @Column(nullable = false, precision = 19, scale = 4)
     private BigDecimal valor;
+
+    @Column(name = "origem_id")
     private Long origemId;
+
+    @Column(name = "destino_id")
     private Long destinoId;
+
+    @Column(length = 20, nullable = false)
     private String status;
+
+    @Column(name = "data_criacao", nullable = false)
     private LocalDateTime dataCriacao;
 
 
