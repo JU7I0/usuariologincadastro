@@ -14,7 +14,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "carteira")
-public class Carteira {
+public class CarteiraEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,7 +22,7 @@ public class Carteira {
 
     @ManyToOne
     @JoinColumn(name = "usuario_id", nullable = false)
-    private Usuario usuario;
+    private UsuarioEntity usuario;
 
     @Column(nullable = false, precision = 19, scale = 4)
     private BigDecimal saldo;
@@ -30,10 +30,10 @@ public class Carteira {
     @Column(name = "limite_diario", precision = 19, scale = 4)
     private BigDecimal limiteDiario;
 
-    public Carteira() {
+    public CarteiraEntity() {
     }
 
-    public Carteira(Long id, Usuario usuario, BigDecimal saldo, BigDecimal limiteDiario) {
+    public CarteiraEntity(Long id, UsuarioEntity usuario, BigDecimal saldo, BigDecimal limiteDiario) {
         this.id = id;
         this.usuario = usuario;
         this.saldo = saldo;
@@ -48,11 +48,11 @@ public class Carteira {
         this.id = id;
     }
 
-    public Usuario getUsuario() {
+    public UsuarioEntity getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(Usuario usuario) {
+    public void setUsuario(UsuarioEntity usuario) {
         this.usuario = usuario;
     }
 

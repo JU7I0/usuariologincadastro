@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "transacao")
-public class Transacao {
+public class TransacaoEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,10 +31,10 @@ public class Transacao {
     private LocalDateTime dataCriacao;
 
 
-    public Transacao() {
+    public TransacaoEntity() {
     }
 
-    public Transacao(Long id, String tipo, BigDecimal valor, Long origemId, Long destinoId, String status, LocalDateTime dataCriacao) {
+    public TransacaoEntity(Long id, String tipo, BigDecimal valor, Long origemId, Long destinoId, String status, LocalDateTime dataCriacao) {
         this.id = id;
         this.tipo = tipo;
         this.valor = valor;
