@@ -11,7 +11,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "usuario")
-public class Usuario {
+public class UsuarioEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,10 +35,10 @@ public class Usuario {
     @Column(name = "data_criacao", nullable = false)
     private LocalDateTime dataCriacao;
 
-    public Usuario() {
+    public UsuarioEntity() {
     }
 
-    public Usuario(Long id, String cpf, String email, String nome, String senhaHash, Boolean ativo,
+    public UsuarioEntity(Long id, String cpf, String email, String nome, String senhaHash, Boolean ativo,
             LocalDateTime dataCriacao) {
         this.id = id;
         this.cpf = cpf;

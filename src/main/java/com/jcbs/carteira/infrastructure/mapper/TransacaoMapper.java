@@ -1,0 +1,40 @@
+package com.jcbs.carteira.infrastructure.mapper;
+
+import com.jcbs.carteira.core.model.Transacao;
+import com.jcbs.carteira.infrastructure.model.TransacaoEntity;
+
+public class TransacaoMapper {
+
+        private TransacaoMapper() {
+    }
+
+    public static Transacao toModel(TransacaoEntity entity) {
+        if (entity == null) {
+            return null;
+        }
+        return new Transacao(
+                entity.getId(),
+                entity.getTipo(),
+                entity.getValor(),
+                entity.getOrigemId(),
+                entity.getDestinoId(),
+                entity.getStatus(),
+                entity.getDataCriacao()
+        );
+    }
+
+    public static TransacaoEntity toEntity(Transacao model) {
+        if (model == null) {
+            return null;
+        }
+        return new TransacaoEntity(
+                model.getId(),
+                model.getTipo(),
+                model.getValor(),
+                model.getOrigemId(),
+                model.getDestinoId(),
+                model.getStatus(),
+                model.getDataCriacao()
+        );
+    }
+}
