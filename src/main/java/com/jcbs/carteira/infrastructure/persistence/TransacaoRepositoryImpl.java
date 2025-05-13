@@ -1,29 +1,19 @@
 package com.jcbs.carteira.infrastructure.persistence;
 
-import java.util.List;
+import org.springframework.stereotype.Repository;
 
 import com.jcbs.carteira.core.model.Transacao;
 import com.jcbs.carteira.core.repository.TransacaoRepository;
 import com.jcbs.carteira.infrastructure.mapper.TransacaoMapper;
 import com.jcbs.carteira.infrastructure.model.TransacaoEntity;
 
+@Repository
 public class TransacaoRepositoryImpl  implements TransacaoRepository {
 
     private TransacaoRepositoryJpa transacaoRepositoryJpa;
 
     public TransacaoRepositoryImpl(TransacaoRepositoryJpa transacaoRepositoryJpa) {
         this.transacaoRepositoryJpa = transacaoRepositoryJpa;
-    }
-
-    @Override
-    public List<Transacao> findByCarteiraId(Long carteiraId) {
-        List<TransacaoEntity> transacaoEntity = transacaoRepositoryJpa.findByCarteiraId(carteiraId);
-        if (transacaoEntity != null) {
-            return transacaoEntity.stream()
-                                   .map(TransacaoMapper::toModel)
-                                   .toList();
-        }
-        return List.of();
     }
 
     @Override

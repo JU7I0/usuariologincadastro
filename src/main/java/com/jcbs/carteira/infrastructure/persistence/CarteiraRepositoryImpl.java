@@ -2,13 +2,16 @@ package com.jcbs.carteira.infrastructure.persistence;
 
 import java.util.List;
 import java.util.Optional;
+
+import org.springframework.stereotype.Repository;
+
 import com.jcbs.carteira.infrastructure.mapper.CarteiraMapper;
 
 
 import com.jcbs.carteira.core.model.Carteira;
 import com.jcbs.carteira.core.repository.CarteiraRepository;
 import com.jcbs.carteira.infrastructure.model.CarteiraEntity;
-
+@Repository
 public class CarteiraRepositoryImpl implements CarteiraRepository {
 
     private CarteiraRepositoryJpa carteiraRepositoryJpa;
