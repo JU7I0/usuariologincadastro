@@ -3,11 +3,14 @@ package com.jcbs.carteira.infrastructure.persistence;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.stereotype.Repository;
+
 import com.jcbs.carteira.core.model.Usuario;
 import com.jcbs.carteira.core.repository.UsuarioRepository;
 import com.jcbs.carteira.infrastructure.mapper.UsuarioMapper;
 import com.jcbs.carteira.infrastructure.model.UsuarioEntity;
 
+@Repository
 public class UsuarioRepositoryImpl implements UsuarioRepository {
 
     private UsuarioRepositoryJpa usuarioRepositoryJpa;

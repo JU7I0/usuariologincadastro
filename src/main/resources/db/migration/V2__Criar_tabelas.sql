@@ -1,0 +1,2 @@
+-- Alterar a coluna id da tabela usuario para GENERATED ALWAYS AS IDENTITY
+ALTER TABLE usuario ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY;
