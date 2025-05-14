@@ -42,6 +42,12 @@ public class UsuarioRepositoryImpl implements UsuarioRepository {
     }
 
     @Override
+    public Usuario findByCpf(String cpf) {
+        UsuarioEntity usuarioEntity = usuarioRepositoryJpa.findByCpf(cpf);
+        return UsuarioMapper.toModel(usuarioEntity);
+    }
+
+    @Override
     public List<Usuario> findAll() {
         List<UsuarioEntity> usuarioEntities = usuarioRepositoryJpa.findAll();
         return usuarioEntities.stream()

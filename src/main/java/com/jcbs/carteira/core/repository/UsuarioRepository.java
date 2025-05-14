@@ -13,6 +13,8 @@ public interface UsuarioRepository {
 
     List<Usuario> findByNome(String nome);
 
+    Usuario findByCpf(String cpf);
+
     List<Usuario> findAll();
 
     void deleteById(Long id);
