@@ -60,4 +60,10 @@ public class UsuarioRepositoryImpl implements UsuarioRepository {
         usuarioRepositoryJpa.deleteById(id);
     }
 
+    @Override
+    public Usuario findByEmail(String email) {
+        UsuarioEntity usuarioEntity = usuarioRepositoryJpa.findByEmail(email);
+        return UsuarioMapper.toModel(usuarioEntity);
+    }
+
 }

@@ -15,6 +15,8 @@ public interface UsuarioRepository {
 
     Usuario findByCpf(String cpf);
 
+    Usuario findByEmail(String email);
+
     List<Usuario> findAll();
 
     void deleteById(Long id);
