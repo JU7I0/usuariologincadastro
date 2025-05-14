@@ -42,6 +42,12 @@ public class UsuarioRepositoryImpl implements UsuarioRepository {
     }
 
     @Override
+    public Usuario findByCpf(String cpf) {
+        UsuarioEntity usuarioEntity = usuarioRepositoryJpa.findByCpf(cpf);
+        return UsuarioMapper.toModel(usuarioEntity);
+    }
+
+    @Override
     public List<Usuario> findAll() {
         List<UsuarioEntity> usuarioEntities = usuarioRepositoryJpa.findAll();
         return usuarioEntities.stream()
@@ -52,6 +58,12 @@ public class UsuarioRepositoryImpl implements UsuarioRepository {
     @Override
     public void deleteById(Long id) {
         usuarioRepositoryJpa.deleteById(id);
+    }
+
+    @Override
+    public Usuario findByEmail(String email) {
+        UsuarioEntity usuarioEntity = usuarioRepositoryJpa.findByEmail(email);
+        return UsuarioMapper.toModel(usuarioEntity);
     }
 
 }

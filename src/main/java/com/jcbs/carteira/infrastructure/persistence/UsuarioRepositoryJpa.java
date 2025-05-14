@@ -9,5 +9,9 @@ import com.jcbs.carteira.infrastructure.model.UsuarioEntity;
 public interface UsuarioRepositoryJpa extends JpaRepository<UsuarioEntity, Long> {
     
     UsuarioEntity findByNome(String nome);
+
+    UsuarioEntity findByCpf(String cpf);
+
+    UsuarioEntity findByEmail(String email);
  
 }
