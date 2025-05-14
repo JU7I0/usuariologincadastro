@@ -20,8 +20,18 @@ public class UsuarioService {
     }
 
     public Usuario save(Usuario usuario) {
+        verificaUsuarioExistente(usuario);
         usuario.setDataCriacao(LocalDateTime.now());
         usuario.setAtivo(true);
         return usuarioRepositoryImpl.save(usuario);
+    }
+
+    private void verificaUsuarioExistente(Usuario usuario) {
+        if (usuarioRepositoryImpl.findByCpf(usuario.getCpf()) != null) {
+            throw new IllegalArgumentException("CPF já cadastrado, por favor, verifique se sua conta está ativa!");
+        }
+        if (usuarioRepositoryImpl.findByEmail(usuario.getEmail()) != null) {
+            throw new IllegalArgumentException("E-mail já cadastrado, por favor, verifique se sua conta está ativa!");
+        }
     }
 }
