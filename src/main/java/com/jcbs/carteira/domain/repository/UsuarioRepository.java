@@ -1,9 +1,9 @@
-package com.jcbs.carteira.core.repository;
+package com.jcbs.carteira.domain.repository;
 
 import java.util.List;
 import java.util.Optional;
 
-import com.jcbs.carteira.core.model.Usuario;
+import com.jcbs.carteira.domain.model.Usuario;
 
 public interface UsuarioRepository {
 
@@ -13,9 +13,9 @@ public interface UsuarioRepository {
 
     List<Usuario> findByNome(String nome);
 
-    Usuario findByCpf(String cpf);
+    Optional<Usuario> findByCpf(String cpf);
 
-    Usuario findByEmail(String email);
+    Optional<Usuario> findByEmail(String email);
 
     List<Usuario> findAll();
 

@@ -1,4 +1,4 @@
-package com.jcbs.carteira.infrastructure.exception;
+package com.jcbs.carteira.adapter.exception;
 
 import java.util.HashMap;
 import java.util.Map;

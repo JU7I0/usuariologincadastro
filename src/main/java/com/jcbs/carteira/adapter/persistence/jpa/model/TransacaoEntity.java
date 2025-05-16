@@ -1,4 +1,4 @@
-package com.jcbs.carteira.infrastructure.model;
+package com.jcbs.carteira.adapter.persistence.jpa.model;
 
 import jakarta.persistence.*;
 import java.math.BigDecimal;

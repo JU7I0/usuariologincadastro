@@ -1,7 +1,7 @@
-package com.jcbs.carteira.infrastructure.mapper;
+package com.jcbs.carteira.adapter.persistence.jpa.mapper;
 
-import com.jcbs.carteira.core.model.Transacao;
-import com.jcbs.carteira.infrastructure.model.TransacaoEntity;
+import com.jcbs.carteira.adapter.persistence.jpa.model.TransacaoEntity;
+import com.jcbs.carteira.domain.model.Transacao;
 
 public class TransacaoMapper {
 

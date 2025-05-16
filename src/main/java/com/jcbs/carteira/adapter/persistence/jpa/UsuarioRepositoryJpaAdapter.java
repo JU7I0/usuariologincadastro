@@ -1,21 +1,21 @@
-package com.jcbs.carteira.infrastructure.persistence;
+package com.jcbs.carteira.adapter.persistence.jpa;
 
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Repository;
 
-import com.jcbs.carteira.core.model.Usuario;
-import com.jcbs.carteira.core.repository.UsuarioRepository;
-import com.jcbs.carteira.infrastructure.mapper.UsuarioMapper;
-import com.jcbs.carteira.infrastructure.model.UsuarioEntity;
+import com.jcbs.carteira.adapter.persistence.jpa.mapper.UsuarioMapper;
+import com.jcbs.carteira.adapter.persistence.jpa.model.UsuarioEntity;
+import com.jcbs.carteira.domain.model.Usuario;
+import com.jcbs.carteira.domain.repository.UsuarioRepository;
 
 @Repository
-public class UsuarioRepositoryImpl implements UsuarioRepository {
+public class UsuarioRepositoryJpaAdapter implements UsuarioRepository {
 
     private UsuarioRepositoryJpa usuarioRepositoryJpa;
 
-    public UsuarioRepositoryImpl(UsuarioRepositoryJpa usuarioRepositoryJpa) {
+    public UsuarioRepositoryJpaAdapter(UsuarioRepositoryJpa usuarioRepositoryJpa) {
         this.usuarioRepositoryJpa = usuarioRepositoryJpa;
     }
 
@@ -42,9 +42,9 @@ public class UsuarioRepositoryImpl implements UsuarioRepository {
     }
 
     @Override
-    public Usuario findByCpf(String cpf) {
+    public Optional<Usuario> findByCpf(String cpf) {
         UsuarioEntity usuarioEntity = usuarioRepositoryJpa.findByCpf(cpf);
-        return UsuarioMapper.toModel(usuarioEntity);
+        return Optional.ofNullable(UsuarioMapper.toModel(usuarioEntity));
     }
 
     @Override
@@ -61,9 +61,9 @@ public class UsuarioRepositoryImpl implements UsuarioRepository {
     }
 
     @Override
-    public Usuario findByEmail(String email) {
+    public Optional<Usuario> findByEmail(String email) {
         UsuarioEntity usuarioEntity = usuarioRepositoryJpa.findByEmail(email);
-        return UsuarioMapper.toModel(usuarioEntity);
+        return Optional.ofNullable(UsuarioMapper.toModel(usuarioEntity));
     }
 
 }

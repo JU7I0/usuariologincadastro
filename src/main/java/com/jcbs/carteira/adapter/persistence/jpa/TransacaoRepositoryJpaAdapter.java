@@ -1,18 +1,18 @@
-package com.jcbs.carteira.infrastructure.persistence;
+package com.jcbs.carteira.adapter.persistence.jpa;
 
 import org.springframework.stereotype.Repository;
 
-import com.jcbs.carteira.core.model.Transacao;
-import com.jcbs.carteira.core.repository.TransacaoRepository;
-import com.jcbs.carteira.infrastructure.mapper.TransacaoMapper;
-import com.jcbs.carteira.infrastructure.model.TransacaoEntity;
+import com.jcbs.carteira.adapter.persistence.jpa.mapper.TransacaoMapper;
+import com.jcbs.carteira.adapter.persistence.jpa.model.TransacaoEntity;
+import com.jcbs.carteira.domain.model.Transacao;
+import com.jcbs.carteira.domain.repository.TransacaoRepository;
 
 @Repository
-public class TransacaoRepositoryImpl  implements TransacaoRepository {
+public class TransacaoRepositoryJpaAdapter  implements TransacaoRepository {
 
     private TransacaoRepositoryJpa transacaoRepositoryJpa;
 
-    public TransacaoRepositoryImpl(TransacaoRepositoryJpa transacaoRepositoryJpa) {
+    public TransacaoRepositoryJpaAdapter(TransacaoRepositoryJpa transacaoRepositoryJpa) {
         this.transacaoRepositoryJpa = transacaoRepositoryJpa;
     }
 
