@@ -1,7 +1,7 @@
-package com.jcbs.carteira.infrastructure.mapper;
+package com.jcbs.carteira.adapter.persistence.jpa.mapper;
 
-import com.jcbs.carteira.core.model.Usuario;
-import com.jcbs.carteira.infrastructure.model.UsuarioEntity;
+import com.jcbs.carteira.adapter.persistence.jpa.model.UsuarioEntity;
+import com.jcbs.carteira.domain.model.Usuario;
 
 public class UsuarioMapper {
 

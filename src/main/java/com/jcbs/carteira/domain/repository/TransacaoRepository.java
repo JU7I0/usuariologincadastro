@@ -1,6 +1,6 @@
-package com.jcbs.carteira.core.repository;
+package com.jcbs.carteira.domain.repository;
 
-import com.jcbs.carteira.core.model.Transacao;
+import com.jcbs.carteira.domain.model.Transacao;
 
 public interface TransacaoRepository {
 

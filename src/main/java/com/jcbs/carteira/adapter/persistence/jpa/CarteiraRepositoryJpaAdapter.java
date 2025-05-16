@@ -1,22 +1,20 @@
-package com.jcbs.carteira.infrastructure.persistence;
+package com.jcbs.carteira.adapter.persistence.jpa;
 
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Repository;
 
-import com.jcbs.carteira.infrastructure.mapper.CarteiraMapper;
-
-
-import com.jcbs.carteira.core.model.Carteira;
-import com.jcbs.carteira.core.repository.CarteiraRepository;
-import com.jcbs.carteira.infrastructure.model.CarteiraEntity;
+import com.jcbs.carteira.adapter.persistence.jpa.mapper.CarteiraMapper;
+import com.jcbs.carteira.adapter.persistence.jpa.model.CarteiraEntity;
+import com.jcbs.carteira.domain.model.Carteira;
+import com.jcbs.carteira.domain.repository.CarteiraRepository;
 @Repository
-public class CarteiraRepositoryImpl implements CarteiraRepository {
+public class CarteiraRepositoryJpaAdapter implements CarteiraRepository {
 
     private CarteiraRepositoryJpa carteiraRepositoryJpa;
 
-    public CarteiraRepositoryImpl(CarteiraRepositoryJpa carteiraRepositoryJpa) {
+    public CarteiraRepositoryJpaAdapter(CarteiraRepositoryJpa carteiraRepositoryJpa) {
         this.carteiraRepositoryJpa = carteiraRepositoryJpa;
     }
 

@@ -6,32 +6,30 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.jcbs.carteira.core.model.Usuario;
-import com.jcbs.carteira.infrastructure.persistence.UsuarioRepositoryImpl;
+import com.jcbs.carteira.adapter.persistence.jpa.UsuarioRepositoryJpaAdapter;
+import com.jcbs.carteira.application.utils.UsuarioValidador;
+import com.jcbs.carteira.domain.model.Usuario;
 
 @Service
 public class UsuarioService {
 
     @Autowired
-    private UsuarioRepositoryImpl usuarioRepositoryImpl;
+    private UsuarioRepositoryJpaAdapter usuarioRepositoryJpaAdapter;
+
+    @Autowired
+    private UsuarioValidador usuarioValidador;
 
     public Optional<Usuario> findById(Long id) {
-        return usuarioRepositoryImpl.findById(id);
+        return usuarioRepositoryJpaAdapter.findById(id);
     }
 
     public Usuario save(Usuario usuario) {
-        verificaUsuarioExistente(usuario);
-        usuario.setDataCriacao(LocalDateTime.now());
-        usuario.setAtivo(true);
-        return usuarioRepositoryImpl.save(usuario);
+        usuarioValidador.verificaUsuarioExistente(usuario);
+        if (usuario.getId() == null) {
+            usuario.setDataCriacao(LocalDateTime.now());
+            usuario.setAtivo(true);
+        }
+        return usuarioRepositoryJpaAdapter.save(usuario);
     }
 
-    private void verificaUsuarioExistente(Usuario usuario) {
-        if (usuarioRepositoryImpl.findByCpf(usuario.getCpf()) != null) {
-            throw new IllegalArgumentException("CPF já cadastrado, por favor, verifique se sua conta está ativa!");
-        }
-        if (usuarioRepositoryImpl.findByEmail(usuario.getEmail()) != null) {
-            throw new IllegalArgumentException("E-mail já cadastrado, por favor, verifique se sua conta está ativa!");
-        }
-    }
 }

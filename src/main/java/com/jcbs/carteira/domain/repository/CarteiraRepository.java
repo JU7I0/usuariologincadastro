@@ -1,9 +1,9 @@
-package com.jcbs.carteira.core.repository;
+package com.jcbs.carteira.domain.repository;
 
 import java.util.List;
 import java.util.Optional;
 
-import com.jcbs.carteira.core.model.Carteira;
+import com.jcbs.carteira.domain.model.Carteira;
 
 public interface CarteiraRepository {
 

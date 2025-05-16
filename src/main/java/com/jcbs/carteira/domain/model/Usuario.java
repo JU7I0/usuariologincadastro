@@ -1,4 +1,4 @@
-package com.jcbs.carteira.core.model;
+package com.jcbs.carteira.domain.model;
 
 import java.time.LocalDateTime;
 
