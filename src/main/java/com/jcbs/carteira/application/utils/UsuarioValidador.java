@@ -1,8 +1,10 @@
 package com.jcbs.carteira.application.utils;
 
+import org.springframework.stereotype.Component;
+
 import com.jcbs.carteira.adapter.persistence.jpa.UsuarioRepositoryJpaAdapter;
 import com.jcbs.carteira.domain.model.Usuario;
-
+@Component
 public class UsuarioValidador {
 
     private final UsuarioRepositoryJpaAdapter usuarioRepositoryJpaAdapter;
