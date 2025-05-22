@@ -8,8 +8,6 @@ import com.jcbs.carteira.application.dto.UsuarioRequestDTO;
 import com.jcbs.carteira.application.dto.UsuarioResponseDTO;
 import com.jcbs.carteira.application.service.UsuarioService;
 
-import jakarta.validation.Valid;
-
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -22,7 +20,7 @@ public class UsuarioController {
     private UsuarioService usuarioService;
 
     @PostMapping()
-    public UsuarioResponseDTO postUsuarios(@RequestBody @Valid UsuarioRequestDTO usuarioRequestDTO) {
+    public UsuarioResponseDTO postUsuarios(@RequestBody UsuarioRequestDTO usuarioRequestDTO) {
         return usuarioService.save(usuarioRequestDTO);
     }
     
