@@ -33,9 +33,10 @@ public class UsuarioService {
     }
 
     public UsuarioResponseDTO save(UsuarioRequestDTO usuarioRequestDTO) {
+        usuarioValidador.verificaUsuarioRequestDTO(usuarioRequestDTO);
         Usuario usuario = UsuarioMapper.mapToUsuario(usuarioRequestDTO);
         usuarioValidador.verificaUsuarioExistente(usuario);
-        usuario.setSenhaHash(passwordEncoder.encode(usuarioRequestDTO.senha()));
+        usuario.setSenhaHash(passwordEncoder.encode(usuarioRequestDTO.getSenha()));
         if (usuario.getId() == null) {
             usuario.setDataCriacao(LocalDateTime.now());
             usuario.setAtivo(true);
