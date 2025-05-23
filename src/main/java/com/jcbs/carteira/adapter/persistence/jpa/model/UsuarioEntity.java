@@ -1,6 +1,14 @@
 package com.jcbs.carteira.adapter.persistence.jpa.model;
 
 import java.time.LocalDateTime;
+import java.util.Collection;
+import java.util.List;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import com.jcbs.carteira.domain.enums.UsuarioRole;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,7 +19,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "usuario")
-public class UsuarioEntity {
+public class UsuarioEntity implements UserDetails{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,13 +43,13 @@ public class UsuarioEntity {
     @Column(name = "data_criacao", nullable = false)
     private LocalDateTime dataCriacao;
 
-    private String roles;
+    private UsuarioRole role;
 
     public UsuarioEntity() {
     }
 
     public UsuarioEntity(Long id, String cpf, String email, String nome, String senhaHash, Boolean ativo,
-            LocalDateTime dataCriacao, String roles) {
+            LocalDateTime dataCriacao, UsuarioRole role) {
         this.id = id;
         this.cpf = cpf;
         this.email = email;
@@ -107,12 +115,28 @@ public class UsuarioEntity {
         this.dataCriacao = dataCriacao;
     }
 
-    public String getRoles() {
-        return roles;
+    public UsuarioRole getRole() {
+        return role;
     }
 
-    public void setRoles(String roles) {
-        this.roles = roles;
+    public void setRoles(UsuarioRole role) {
+        this.role = role;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        if(this.role == UsuarioRole.ADMIN) return List.of(new SimpleGrantedAuthority("ROLE_ADMIN"), new SimpleGrantedAuthority("ROLE_USER"));
+        else return List.of(new SimpleGrantedAuthority("ROLE_USER"));
+    }
+
+    @Override
+    public String getPassword() {
+        return senhaHash;
+    }
+
+    @Override
+    public String getUsername() {
+        return email;
     }
     
 }

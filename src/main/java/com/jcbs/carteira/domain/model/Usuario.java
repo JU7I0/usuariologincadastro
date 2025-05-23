@@ -2,6 +2,8 @@ package com.jcbs.carteira.domain.model;
 
 import java.time.LocalDateTime;
 
+import com.jcbs.carteira.domain.enums.UsuarioRole;
+
 
 public class Usuario {
 
@@ -12,13 +14,13 @@ public class Usuario {
     private String senhaHash;
     private Boolean ativo = true;
     private LocalDateTime dataCriacao;
-    private String roles;
+    private UsuarioRole role;
 
     public Usuario() {
     }
 
     public Usuario(Long id, String cpf, String email, String nome, String senhaHash, Boolean ativo,
-            LocalDateTime dataCriacao, String roles) {
+            LocalDateTime dataCriacao, UsuarioRole role) {
         this.id = id;
         this.cpf = cpf;
         this.email = email;
@@ -26,7 +28,7 @@ public class Usuario {
         this.senhaHash = senhaHash;
         this.ativo = ativo;
         this.dataCriacao = dataCriacao;
-        this.roles = roles;
+        this.role = role;
     }
 
     public Long getId() {
@@ -85,12 +87,12 @@ public class Usuario {
         this.dataCriacao = dataCriacao;
     }
 
-    public String getRoles() {
-        return roles;
+    public UsuarioRole getRole() {
+        return role;
     }
 
-    public void setRoles(String roles) {
-        this.roles = roles;
+    public void setRole(UsuarioRole role) {
+        this.role = role;
     }
     
 }

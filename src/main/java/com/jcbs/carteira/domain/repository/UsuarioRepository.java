@@ -3,6 +3,8 @@ package com.jcbs.carteira.domain.repository;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.security.core.userdetails.UserDetails;
+
 import com.jcbs.carteira.domain.model.Usuario;
 
 public interface UsuarioRepository {
@@ -16,6 +18,8 @@ public interface UsuarioRepository {
     Optional<Usuario> findByCpf(String cpf);
 
     Optional<Usuario> findByEmail(String email);
+
+    UserDetails findByEmailDetails(String email);
 
     List<Usuario> findAll();
 
