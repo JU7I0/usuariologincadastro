@@ -12,12 +12,13 @@ public class Usuario {
     private String senhaHash;
     private Boolean ativo = true;
     private LocalDateTime dataCriacao;
+    private String roles;
 
     public Usuario() {
     }
 
     public Usuario(Long id, String cpf, String email, String nome, String senhaHash, Boolean ativo,
-            LocalDateTime dataCriacao) {
+            LocalDateTime dataCriacao, String roles) {
         this.id = id;
         this.cpf = cpf;
         this.email = email;
@@ -25,6 +26,7 @@ public class Usuario {
         this.senhaHash = senhaHash;
         this.ativo = ativo;
         this.dataCriacao = dataCriacao;
+        this.roles = roles;
     }
 
     public Long getId() {
@@ -83,5 +85,12 @@ public class Usuario {
         this.dataCriacao = dataCriacao;
     }
 
+    public String getRoles() {
+        return roles;
+    }
+
+    public void setRoles(String roles) {
+        this.roles = roles;
+    }
     
 }

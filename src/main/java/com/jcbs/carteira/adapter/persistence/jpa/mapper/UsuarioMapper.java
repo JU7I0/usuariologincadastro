@@ -19,7 +19,8 @@ public class UsuarioMapper {
                 entity.getNome(),
                 entity.getSenhaHash(),
                 entity.getAtivo(),
-                entity.getDataCriacao()
+                entity.getDataCriacao(),
+                entity.getRoles()
         );
     }
 
@@ -34,7 +35,8 @@ public class UsuarioMapper {
                 model.getNome(),
                 model.getSenhaHash(),
                 model.getAtivo(),
-                model.getDataCriacao()
+                model.getDataCriacao(),
+                model.getRoles()
         );
     }
 

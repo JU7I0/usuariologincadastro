@@ -35,11 +35,13 @@ public class UsuarioEntity {
     @Column(name = "data_criacao", nullable = false)
     private LocalDateTime dataCriacao;
 
+    private String roles;
+
     public UsuarioEntity() {
     }
 
     public UsuarioEntity(Long id, String cpf, String email, String nome, String senhaHash, Boolean ativo,
-            LocalDateTime dataCriacao) {
+            LocalDateTime dataCriacao, String roles) {
         this.id = id;
         this.cpf = cpf;
         this.email = email;
@@ -105,5 +107,12 @@ public class UsuarioEntity {
         this.dataCriacao = dataCriacao;
     }
 
+    public String getRoles() {
+        return roles;
+    }
+
+    public void setRoles(String roles) {
+        this.roles = roles;
+    }
     
 }
