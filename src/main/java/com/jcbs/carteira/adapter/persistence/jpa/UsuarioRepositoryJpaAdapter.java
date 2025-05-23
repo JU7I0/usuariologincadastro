@@ -3,6 +3,7 @@ package com.jcbs.carteira.adapter.persistence.jpa;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Repository;
 
 import com.jcbs.carteira.adapter.persistence.jpa.mapper.UsuarioMapper;
@@ -64,6 +65,17 @@ public class UsuarioRepositoryJpaAdapter implements UsuarioRepository {
     public Optional<Usuario> findByEmail(String email) {
         UsuarioEntity usuarioEntity = usuarioRepositoryJpa.findByEmail(email);
         return Optional.ofNullable(UsuarioMapper.toModel(usuarioEntity));
+    }
+
+    @Override
+    public UserDetails findByEmailDetails(String email) {
+        UsuarioEntity usuarioEntity = usuarioRepositoryJpa.findByEmail(email);
+        UserDetails usuarioDetails = new org.springframework.security.core.userdetails.User(
+                usuarioEntity.getEmail(),
+                usuarioEntity.getSenhaHash(),
+                usuarioEntity.getAuthorities()
+        );
+        return usuarioDetails;
     }
 
 }
