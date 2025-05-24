@@ -36,7 +36,7 @@ public class UsuarioService {
         usuarioValidador.verificaUsuarioRequestDTO(usuarioRequestDTO);
         Usuario usuario = UsuarioMapper.mapToUsuario(usuarioRequestDTO);
         usuarioValidador.verificaUsuarioExistente(usuario);
-        usuario.setSenhaHash(passwordEncoder.encode(usuarioRequestDTO.getSenha()));
+        usuario.setSenhaHash(passwordEncoder.encode(usuarioRequestDTO.senha()));
         if (usuario.getId() == null) {
             usuario.setDataCriacao(LocalDateTime.now());
             usuario.setAtivo(true);
