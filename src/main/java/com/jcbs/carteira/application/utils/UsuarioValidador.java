@@ -25,15 +25,15 @@ public class UsuarioValidador {
 
     public void verificaUsuarioRequestDTO(UsuarioRequestDTO dto) {
         verificaCamposPresentes(dto);
-        verificaCpf(dto.getCpf());
-        verificaEmail(dto.getEmail());
-        verificaSenha(dto.getSenha());
+        verificaCpf(dto.cpf());
+        verificaEmail(dto.email());
+        verificaSenha(dto.senha());
     }
 
     private void verificaCamposPresentes(UsuarioRequestDTO dto) {
         StringBuilder missingFields = new StringBuilder();
         String[] fieldNames = {"cpf", "email", "nome", "senha"};
-        Object[] fieldValues = {dto.getCpf(), dto.getEmail(), dto.getNome(), dto.getSenha()};
+        Object[] fieldValues = {dto.cpf(), dto.email(), dto.nome(), dto.senha()};
         for (int i = 0; i < fieldNames.length; i++) {
             if (fieldValues[i] == null) {
                 missingFields.append(fieldNames[i]).append(", ");

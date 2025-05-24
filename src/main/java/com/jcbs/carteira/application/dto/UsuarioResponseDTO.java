@@ -2,21 +2,11 @@ package com.jcbs.carteira.application.dto;
 
 import java.time.LocalDateTime;
 
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-@Getter @Setter
-@AllArgsConstructor
-@NoArgsConstructor
-@ToString @EqualsAndHashCode
-public class UsuarioResponseDTO {
-    private Long id;
-    private String cpf;
-    private String email;
-    private String nome;
-    private Boolean ativo;
-    private LocalDateTime dataCriacao;
-}
+public record UsuarioResponseDTO(
+    Long id,
+    String cpf,
+    String email,
+    String nome,
+    Boolean ativo,
+    LocalDateTime dataCriacao
+) {}
