@@ -10,7 +10,7 @@ import com.jcbs.carteira.application.service.UsuarioService;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-
+import org.springframework.web.bind.annotation.GetMapping;
 
 @RestController
 @RequestMapping("/api/usuarios")
@@ -22,6 +22,11 @@ public class UsuarioController {
     @PostMapping()
     public UsuarioResponseDTO postUsuarios(@RequestBody UsuarioRequestDTO usuarioRequestDTO) {
         return usuarioService.save(usuarioRequestDTO);
+    }
+
+    @GetMapping("/logado")
+    public String getLogado() {
+        return "Logado com sucesso";
     }
     
 }

@@ -12,6 +12,8 @@ import com.jcbs.carteira.domain.enums.UsuarioRole;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -43,6 +45,7 @@ public class UsuarioEntity implements UserDetails{
     @Column(name = "data_criacao", nullable = false)
     private LocalDateTime dataCriacao;
 
+    @Enumerated(EnumType.STRING)
     private UsuarioRole role;
 
     public UsuarioEntity() {
@@ -57,6 +60,7 @@ public class UsuarioEntity implements UserDetails{
         this.senhaHash = senhaHash;
         this.ativo = ativo;
         this.dataCriacao = dataCriacao;
+        this.role = role;
     }
 
     public Long getId() {

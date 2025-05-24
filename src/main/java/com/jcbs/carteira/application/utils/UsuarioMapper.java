@@ -11,10 +11,10 @@ public class UsuarioMapper {
 
     public static Usuario mapToUsuario(UsuarioRequestDTO dto) {
         Usuario usuario = new Usuario();
-        usuario.setCpf(dto.getCpf());
-        usuario.setEmail(dto.getEmail());
-        usuario.setNome(dto.getNome());
-        usuario.setSenhaHash(dto.getSenha());
+        usuario.setCpf(dto.cpf());
+        usuario.setEmail(dto.email());
+        usuario.setNome(dto.nome());
+        usuario.setSenhaHash(dto.senha());
         return usuario;
     }
 
