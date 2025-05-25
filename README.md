@@ -1,6 +1,6 @@
-# Carteira
+# Microserviço de Cadastro e Login de Usuário
 
-Este é um projeto de exemplo para gerenciar uma aplicação de carteira digital. Ele utiliza **Spring Boot**, **PostgreSQL**, **Flyway** para migração de banco de dados e **Docker** para facilitar o ambiente de desenvolvimento.
+Este microserviço é responsável exclusivamente pelo cadastro de usuários e autenticação (login) via JWT. Ele utiliza **Spring Boot**, **PostgreSQL**, **Flyway** para migração de banco de dados e **Docker** para facilitar o ambiente de desenvolvimento.
 
 ## Tecnologias Utilizadas
 
@@ -8,6 +8,7 @@ Este é um projeto de exemplo para gerenciar uma aplicação de carteira digital
 - **Spring Boot 3.4.5**
     - Spring Data JPA
     - Spring Web
+- **String Security 6**
 - **PostgreSQL**
 - **Flyway** (para migração de banco de dados)
 - **Docker** e **Docker Compose**
@@ -27,7 +28,7 @@ Certifique-se de ter as seguintes ferramentas instaladas:
 O projeto utiliza **PostgreSQL** como banco de dados principal. As configurações estão definidas no arquivo `application.properties`:
 
 ```properties
-spring.datasource.url=jdbc:postgresql://localhost:5432/carteira
+spring.datasource.url=jdbc:postgresql://localhost:5432/usuariologincadastro
 spring.datasource.username=user
 spring.datasource.password=senhafraca
 spring.jpa.hibernate.ddl-auto=validate
@@ -44,7 +45,7 @@ O serviço será iniciado na porta 5432 com as seguintes credenciais:
 
 - **Usuário**: user  
 - **Senha**: senhafraca  
-- **Banco de Dados**: carteira  
+- **Banco de Dados**: usuariologincadastro  
 
 ## Migração de Banco de Dados
 
@@ -62,7 +63,7 @@ As migrações serão aplicadas automaticamente ao iniciar a aplicação.
 
      ```bash
      git clone <URL_DO_REPOSITORIO>
-     cd carteira
+     cd usuariologincadastro
      ```
 
 2. Inicie o banco de dados com Docker Compose:
@@ -89,7 +90,7 @@ Para executar os testes, utilize o comando:
 
 ## Endpoints da API
 
-Os endpoints da API serão definidos nos controladores localizados no pacote `com.jcbs.carteira`. Certifique-se de implementar os controladores para expor as funcionalidades da aplicação.
+Os endpoints da API serão definidos nos controladores localizados no pacote `com.jcbs.usuariologincadastro`. Certifique-se de implementar os controladores para expor as funcionalidades da aplicação.
 
 ## Contribuição
 
