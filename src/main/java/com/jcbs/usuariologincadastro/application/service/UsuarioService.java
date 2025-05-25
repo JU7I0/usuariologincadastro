@@ -37,10 +37,10 @@ public class UsuarioService {
         Usuario usuario = UsuarioMapper.mapToUsuario(usuarioRequestDTO);
         usuarioValidador.verificaUsuarioExistente(usuario);
         usuario.setSenhaHash(passwordEncoder.encode(usuarioRequestDTO.senha()));
-        if (usuario.getId() == null) {
-            usuario.setDataCriacao(LocalDateTime.now());
-            usuario.setAtivo(true);
-        }
+        
+        usuario.setDataCriacao(LocalDateTime.now());
+        usuario.setAtivo(true);
+        
         Usuario usuarioSalvo = usuarioRepositoryJpaAdapter.save(usuario);
         return UsuarioMapper.mapToUsuarioResponseDTO(usuarioSalvo);
     }
