@@ -3,12 +3,12 @@ version: '3.8'
 services:
   postgres:
     image: postgres:15
-    container_name: carteira_postgres
+    container_name: usuariologincadastro_postgres
     restart: always
     environment:
       POSTGRES_USER: user
       POSTGRES_PASSWORD: senhafraca
-      POSTGRES_DB: carteira
+      POSTGRES_DB: usuariologincadastro
     ports:
       - "5432:5432"
     volumes:

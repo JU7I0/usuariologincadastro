@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.jcbs</groupId>
-	<artifactId>carteira</artifactId>
+	<artifactId>usuario-login-cadastro</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>carteira</name>
+	<name>Projeto de Login e Cadastro de Usuário</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>
